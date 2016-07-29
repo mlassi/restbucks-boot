@@ -1,6 +1,7 @@
 package com.restbucks.home;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 
 public class HomeControllerTest {
@@ -12,7 +13,7 @@ public class HomeControllerTest {
 
     String actual = ctrl.retrieveWelcomeMessage().getBody();
 
-    Assertions.assertThat(actual).isEqualTo(expected);
+    assertThat(actual).isEqualTo(expected);
 
   }
 }
