@@ -1,5 +1,11 @@
 *.class
+.classpath
+.project
+.settings/*
+bin/*
+build/*
 
+info.app.name_IS_UNDEFINED-info.app.version_IS_UNDEFINED-spring.profiles.active_IS_UNDEFINED.log
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

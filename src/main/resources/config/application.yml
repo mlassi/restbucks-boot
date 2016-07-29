@@ -1,0 +1,62 @@
+# Embedded Server Configuration
+server:
+  port: 8080
+  tomcat:
+    basedir: .
+
+spring:
+
+  application:
+    name: restbucks
+
+  boot:
+    admin:
+      url: http://localhost:8484
+
+  # Add CGLIB-based proxy support
+  aop:
+    proxy-target-class: true
+
+  datasource:
+    dataSourceClassName: org.h2.Driver
+    url: "jdbc:h2:mem:restbucks;MODE=ORACLE;INIT=CREATE SCHEMA IF NOT EXISTS RESTBUCKS\\;SET SCHEMA RESTBUCKS;DB_CLOSE_ON_EXIT=false;"
+    username: sa
+    password: password
+
+
+  jpa:
+    database: H2
+    show-sql: true
+    #stop the auto creation of the database by hibernate
+    generate-ddl: false
+    properties:
+         hibernate:
+            dialect: org.hibernate.dialect.Oracle10gDialect
+            format-sql: true
+    hibernate:
+            ddl-auto: none
+
+logging:
+  level:
+    org.springframework.boot: DEBUG
+
+#
+# Application information
+#
+info:
+  app:
+    name: ${spring.application.name}
+    description: Restbucks
+    version: 1.0.0
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
+liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db-changelog-master.xml
+    default-schema: restbucks
+
+
