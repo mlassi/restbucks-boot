@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan("com.restbucks.domain.model")
-@EnableJpaRepositories("com.restbucks.domain.repository")
+@EnableJpaRepositories("com.restbucks.beverage")
 @EnableAutoConfiguration
 @Configuration
 public class JpaConfig {
