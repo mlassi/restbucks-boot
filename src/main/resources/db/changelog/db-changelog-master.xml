@@ -16,6 +16,22 @@
         <rollback>
             <dropTable tableName="ORDERS"/>
         </rollback>
+        
+        <createTable tableName="BEVERAGE">
+            <column name="ID" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar2(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar2(255)" />
+        </createTable>
+        <rollback>
+            <dropTable tableName="BEVERAGE"/>
+        </rollback>
+
+		<loadData separator="," tableName="BEVERAGE"
+                  file="/db/changelog/beverages.csv"/>
 
  	</changeSet>
 </databaseChangeLog>
